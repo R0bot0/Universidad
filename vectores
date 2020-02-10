@@ -1,0 +1,108 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package practica_vectores1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author rmaldonadoe
+ */
+public class Practica_vectores1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int n,i,MAN,SW,SWI,OP,Elim,Cod;
+        float P,MN,S;
+        Scanner lea = new Scanner(System.in);
+        System.out.print("Ingrese el numero de codigos que va a ingresar: ");
+        n=lea.nextInt();
+        float A[] = new float [1000];
+        int B[] = new int [1000];
+        for(i=0;i<n;i++){
+            System.out.print("Escriba el codigo del estudiante numero "+(i+1)+": ");
+            B[i] = lea.nextInt();
+            System.out.print("Escriba la nota del estudiante numero "+(i+1)+": ");
+            A[i] = lea.nextFloat();
+        }
+        MN=A[i];
+         for(i=1;i<n;i++){
+             if(A[i]<MN){
+                 MN=A[i];
+             }
+         }
+         System.out.println("La nota mas baja fue "+MN);
+         MN=0;
+         MAN=0;
+          for(i=0;i<n;i++){
+              if(A[i]>MN){
+                  MAN=B[i];
+                  MN=A[i];
+              }
+          }
+          System.out.println("El estudiante con la mayor nota es aquel con codigo "+MAN);
+          S=0;
+           for(i=0;i<n;i++){
+               S=S+A[i];
+           }
+           P=S/n;
+           System.out.println("La nota promedio de los estudiantes es "+P);
+           SW=0;
+           while(SW==0){
+               System.out.println("¿Que desea hacer ahora?");
+               System.out.println("1.Introducir un nuevo codigo");
+               System.out.println("2.Salir");
+               OP=lea.nextInt();
+               if(OP<1||OP>2){
+                   System.out.println("La opcion ingresada no es valida");
+               }else{
+                   switch(OP){
+                       case 1:
+                           System.out.print("Digite el codigo:");
+                           Cod=lea.nextInt();
+                           System.out.println("¿Que desea hacer ahora?");
+                           System.out.println("1. Eliminarlo");
+                           System.out.println("2. Agregarlo");
+                           OP=lea.nextInt();
+                           switch(OP){
+                               case 1:
+                                   Elim=0;
+                                   SWI=0;
+                                   for(i=0;i<n;i++){
+                                       if(B[i]==Cod){
+                                           Elim=i;
+                                           SWI=1;
+                                       }
+                                   }
+                                   if(SWI==0){
+                                       System.out.print("El codigo ingresado no es valido");
+                                   }else{
+                                        for(i=Elim;i<n;i++){
+                                            A[i]=A[i+1];
+                                            B[i]=B[i+1];
+                                        }
+                                        n=n-1;
+                                   }
+                                   break;
+                               case 2:
+                                   B[n+1]=Cod;
+                                   System.out.print("Escriba la nota del estudiante:");
+                                   A[n+1]=lea.nextFloat();
+                                   n=n+1;
+                                   break;
+                           }
+                           break;
+                       case 2:
+                           SW=1;
+                           break;
+                   }
+               }
+           }
+    }
+    
+}
