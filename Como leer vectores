@@ -9,3 +9,4 @@ int M[][]=new int [2] [2];
                 System.out.print(" "+M[i][j]);
             }
             System.out.println("");
+        }
