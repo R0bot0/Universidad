@@ -1,0 +1,78 @@
+package trabajo.matrices;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author rmaldonadoe
+ */
+public class TrabajoMatrices {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Bonito bn = new Bonito ();
+        bn.setVisible(true);
+        Scanner leer = new Scanner (System.in);
+       int s,sw,pc,f,i,l;
+        int M[][]=new int [3] [30];
+        s=1;
+        pc=0;
+        f=0;
+        while(s==1){
+            System.out.println("¿Que desea hacer?");
+            System.out.println("1. Encontrar un libro");
+            System.out.println("2. Salir");
+            sw=leer.nextInt();
+            switch(sw){
+                case 1:
+                    sw=0;
+                    i=0;
+                    System.out.print("Digite el codigo del libro que quiere encontrar: ");
+                    l=leer.nextInt();
+                    while(i<30&&sw==0){
+                        if(M[0][i]==l){
+                            f=i;
+                            sw=1;
+                        }
+                        i=i+1;
+                    }
+                    if(sw==0){
+                        System.out.println("");
+                         for(i =0; i<3;i++){
+                          for(int j=0; j<30 ; j++){
+                         System.out.print(" "+M[i][j]);
+                           }
+                        System.out.println("");
+                    }
+                        System.out.println("El codigo ingresado no existe, desea añadir un nuevo libro con ese codigo?");
+                        System.out.println("1.Si");
+                        System.out.println("2.No");
+                        sw=leer.nextInt();
+                        if(sw==1){
+                            M[0][pc]=l;
+                            System.out.println("");
+                            System.out.print("Ingrese el codigo de ubicación del libro: ");
+                            M[1][pc]=leer.nextInt();
+                            System.out.println("");
+                            System.out.print("Ingrese el codigo interno del libro: ");
+                            M[2][pc]=leer.nextInt();
+                            pc=pc+1;
+                        }
+                    }else{
+                    System.out.println("");
+                    System.out.println("El codigo de ubicación del libro es "+M[1][f]+" y su codigo interno es "+M[2][f]);
+                    System.out.println("");
+                    }
+                    break;
+                case 2:
+                    s=0;
+                    break;
+            }
+        }
+        System.out.println("Gracias por usar este programa.");
+            
+    }
+    
+}
