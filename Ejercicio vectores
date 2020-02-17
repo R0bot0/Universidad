@@ -41,6 +41,17 @@ public class TrabajoMatrices {
                     if(sw==0){
                         System.out.println("");
                          for(i =0; i<3;i++){
+                         switch(i){
+                                 case 0:
+                                     System.out.print("[Codigo del libro]");
+                                     break;
+                                 case 1:
+                                     System.out.print("[Codigo de ubicación]");
+                                     break;
+                                 case 2:
+                                     System.out.print("[Codigo interno]");
+                                     break;    
+                             }
                           for(int j=0; j<30 ; j++){
                          System.out.print(" "+M[i][j]);
                            }
