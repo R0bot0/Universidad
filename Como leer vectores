@@ -1,0 +1,11 @@
+int M[][]=new int [2] [2];
+        for(int i = 0; i<2 ;i++){
+            for(int j = 0;j<2;j++){
+                M[i][j]=leer.nextInt();
+            }
+        }
+        for(int i =0; i<2;i++){
+            for(int j=0; j<2 ; j++){
+                System.out.print(" "+M[i][j]);
+            }
+            System.out.println("");
