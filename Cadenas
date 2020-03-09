@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cadenas;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author rmaldonadoe
+ */
+public class Cadenas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+        float a;
+                int sw;
+        sw=0;
+        String b=new String();//Esto se hace para evitar errores
+        //a=leer.nextInt();/*Si fuera solo esto se rompe el programa si se digitara una letra o un punto.
+         String p=b.substring(0,1);
+        if((p.compareTo("-")==0)){
+            
+        }
+        for(int i = 0; i < b.length();i++){
+            String s=b.substring(i,i+1);
+           
+            if((s.compareTo("1")!=0) && (s.compareTo("2")!=0) &&(s.compareTo("3")!=0)
+             && (s.compareTo("4")!=0) && (s.compareTo("5")!=0) && (s.compareTo("6")!=0)
+             &&(s.compareTo("7")!=0) &&(s.compareTo("8")!=0) &&(s.compareTo("9")!=0)&&(s.compareTo("0")!=0)){
+             sw=1;   /*/esto es para validadr que en cada posicion halla un numero y no un signo o letra. En este caso seria mejor 
+             usar s.equals("(El numero que quieres saber si son iguales)"), te va adar un booleano y no tienes que poner el igual a cero.;*/
+            }
+        }
+        //a=Integer.parseInt(b)*2;//si fuera solo esto no validaria para numeros decimales.
+        if(sw==1){
+            System.out.println(b+" no es un valor valido");
+        }else{
+            a=Float.parseFloat(b)*2;//esto se hace para cambiar el string a un valor numerico
+            System.out.println("El dato "+a+" esta correcto");
+        }
+        /*
+        System.out.println(b.substring(0,1));
+        System.out.println(b.substring(1,2));
+        System.out.println(b.substring(2,3));
+        System.out.println(b.substring(3,4)); 
+*/
+        
+        
+    }
+    
+}
