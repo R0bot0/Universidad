@@ -1,0 +1,118 @@
+Scanner leer = new Scanner(System.in);
+        int n, cp, mp,suma,pc,T,k,sw;
+        System.out.print("Ingrese el tamaño de la matriz (NxN): ");
+        n=leer.nextInt();
+        int B[]=new int [n];
+         int A[]=new int [n*n];
+        int M[][]=new int [n] [n];
+        System.out.print("Ingrse los valores de la matriz: ");
+        for(int i = 0; i<n ;i++){
+            for(int j = 0;j<n;j++){
+                M[j][i]=leer.nextInt();
+            }
+        }
+        
+        cp=0;
+        for(int i = 0; i<n ;i++){
+            
+            for(int j = 0;j<n;j++){
+                k=2;
+             sw=1;
+                while(k<M[j][i]-1&&sw==1){
+                    if(M[j][i]%k==0){
+                    
+                    
+                    sw=0;
+                } 
+                    k=k+1;
+                }
+                if(sw==1&&M[j][i]!=1&&M[j][i]!=0){
+                    A[cp]=M[j][i];
+                    cp=cp+1;
+                }
+            }
+        }
+       
+        mp=0;
+        for(int i = 0; i<n ;i++){
+            B[i]=M[i][i];
+            
+        }
+        
+        int C[]=new int [cp+n];//xd
+        
+        
+        for(int i =0; i<n;i++){
+            if(i==n/2){
+                System.out.print("-M=");
+            }else{
+                System.out.print("   ");
+            }
+            for(int j=0; j<n ; j++){
+                System.out.print(" "+M[i][j]);
+            }
+            System.out.println("");
+        }
+        System.out.println("");
+        if(cp==0){
+            System.out.println("-A=(N/A)");
+        }else{
+            System.out.print("-A=("+A[0]);
+             for(int i = 1; i<cp ;i++){
+                 System.out.print(", "+A[i]);
+             }
+             System.out.println(")");
+             
+        }
+        System.out.print("-B=("+B[0]);
+             for(int i = 1; i<n ;i++){
+                 System.out.print(", "+B[i]);
+             }
+             System.out.println(")");
+        if(n<cp){
+            pc=0;
+            for(int i = 0; i<n ;i++){
+                C[pc]=B[i];
+                pc=pc+1;
+            }
+            for(int i = 0; i<cp ;i++){
+                C[pc]=A[i];
+                pc=pc+1;
+            }
+            for(int i = 0; i<cp+n ;i++){
+                 for(int j = i+1; j<cp+n ;j++){
+                     if(C[i]>C[j]){
+                         T=C[i];
+                         C[i]=C[j];
+                         C[j]=T;
+                     }
+                 }
+            }
+            System.out.print("-C=("+C[0]);
+             for(int i = 1; i<cp+n ;i++){
+                 System.out.print(", "+C[i]);
+             }
+             System.out.println(")");
+        }else{
+            for(int i = 0; i<n ;i++){
+                for(int j = 0; j<n ;j++){
+                    suma=0;
+                     for( k = 1; k<M[i][j]-1 ;k++){
+                    if(M[i][j]%k==0){
+                        suma=suma+k;
+                    }
+                    
+                }
+                    if(suma==M[i][j]&&M[i][j]>mp){
+                        mp=M[i][j];
+                    } 
+                }
+               
+            }
+            if(mp==0){
+               System.out.println("-No hay numeros perfectos en la matriz"); 
+            }else{
+                System.out.println("-El numero perfecto mas alto de la matriz es: "+mp);
+            }
+            
+        }
